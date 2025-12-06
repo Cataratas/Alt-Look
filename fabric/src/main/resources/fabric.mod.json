@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "altlook",
+  "version": "${version}",
+  "name": "AltLook",
+  "description": "",
+  "authors": ["Cataratas"],
+  "contact": {
+    "homepage": ""  },
+  "license": "MIT",
+  "icon": "assets/altlook/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.me.altlook.fabric.AltlookFabric"
+    ],
+    "client": [
+      "org.me.altlook.fabric.client.AltlookFabricClient"
+    ]
+  },
+  "mixins": [
+    "altlook.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "minecraft": "~1.21.8",
+    "java": ">=21"
+    ,"architectury": ">=17.0.8"
+    ,"fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
