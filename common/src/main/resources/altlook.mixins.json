@@ -1,9 +1,13 @@
 {
   "required": true,
-  "package": "org.me.altlook.mixin",
+  "package": "org.me.altlook.mixins",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
+    "CameraAccessor",
+    "GameRendererMixin",
+    "MouseHandlerAccessor",
+    "MouseHandlerMixin"
   ],
   "mixins": [
   ],

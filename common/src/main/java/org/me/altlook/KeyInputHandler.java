@@ -2,22 +2,32 @@ package org.me.altlook;
 
 import dev.architectury.event.events.client.ClientTickEvent;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
-
 import static org.me.altlook.Altlook.MY_KEY;
+import static org.me.altlook.Altlook.enabled;
 
 public class KeyInputHandler {
+    private static boolean reset = true;
 
     public static void register() {
         ClientTickEvent.CLIENT_POST.register(client -> {
-            if (MY_KEY != null && MY_KEY.consumeClick()) {
-                onPress(client);
+            if (MY_KEY != null && MY_KEY.isDown()) {
+                getRotation(client);
+            } else {
+                reset = true;
+                enabled = false;
             }
         });
     }
 
-    private static void onPress(Minecraft client) {
-        assert client.player != null;
-        client.player.displayClientMessage(Component.literal("Key pressed!"), false);
+    private static void getRotation(Minecraft client) {
+        if (client.player == null) return;
+
+        if (reset) {
+            Altlook.cameraYaw   = client.player.getYRot();  // yaw
+            Altlook.cameraPitch = client.player.getXRot();  // pitch
+            reset = false;
+        }
+
+        enabled = true;
     }
 }
