@@ -21,6 +21,7 @@ public abstract class MouseHandlerMixin {
     @Inject(method = "turnPlayer", at = @At("HEAD"), cancellable = true)
     private void altlookTurnPlayer(double d, CallbackInfo ci) {
         if (!Altlook.enabled) return;
+        ci.cancel();
 
         double sensitivity = minecraft.options.sensitivity().get();
         double scale = sensitivity * 0.6 + 0.2;
@@ -29,11 +30,10 @@ public abstract class MouseHandlerMixin {
         double dx = ((MouseHandlerAccessor) this).getDX() * mult;
         double dy = ((MouseHandlerAccessor) this).getDY() * mult;
 
-        Altlook.cameraYaw   += dx * 0.15;  // multiply by 0.15 — vanilla constant
+        Altlook.cameraYaw   += dx * 0.15;
         Altlook.cameraPitch += dy * 0.15;
         Altlook.cameraPitch = Mth.clamp(Altlook.cameraPitch, -90, 90);
 
-        ci.cancel();
         ((MouseHandlerAccessor) this).setDX(0);
         ((MouseHandlerAccessor) this).setDY(0);
     }
