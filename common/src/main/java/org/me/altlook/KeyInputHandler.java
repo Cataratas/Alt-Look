@@ -23,7 +23,7 @@ public class KeyInputHandler {
         if (client.player == null) return;
 
         if (reset) {
-            Altlook.cameraYaw   = client.player.getYRot();
+            Altlook.cameraYaw = client.player.getYRot();
             Altlook.cameraPitch = client.player.getXRot();
             reset = false;
         }

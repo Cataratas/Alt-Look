@@ -24,11 +24,10 @@ public class CameraMixin {
     ), cancellable = true)
     private void altlookSetRotation(CallbackInfo ci) {
         if (!Altlook.enabled) return;
-
         ci.cancel();
+
         this.yRot = (float) Altlook.cameraYaw;
         this.xRot = (float) Altlook.cameraPitch;
-
         this.rotation.rotationYXZ((float)Math.PI - this.yRot * ((float)Math.PI / 180F), -this.xRot * ((float)Math.PI / 180F), 0.0F);
     }
 }

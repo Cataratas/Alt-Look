@@ -1,7 +1,6 @@
 package org.me.altlook.neoforge;
 
 import net.minecraft.client.KeyMapping;
-import net.neoforged.bus.api.SubscribeEvent;
 import org.lwjgl.glfw.GLFW;
 import org.me.altlook.Altlook;
 import net.neoforged.fml.common.Mod;
