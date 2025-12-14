@@ -14,7 +14,7 @@ public final class AltlookNeoForge {
         Altlook.MY_KEY = new KeyMapping(
                     "key.altlook.key",
                     GLFW.GLFW_KEY_LEFT_ALT,
-                    "category.altlook"
+                    Altlook.MY_CATEGORY
             );
     }
 }
