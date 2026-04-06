@@ -1,13 +1,13 @@
 modLoader = "javafml"
 loaderVersion = "[10,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "MIT License"
 
 [[mods]]
 modId = "altlook"
 version = "${version}"
 displayName = "altlook"
-authors = "Me!"
+authors = "Cataratas"
 description = '''
 This is an example description! Tell everyone what your mod is about!
 '''
