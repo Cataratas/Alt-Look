@@ -12,6 +12,7 @@ public class KeyInputHandler {
         ClientTickEvent.CLIENT_POST.register(client -> {
             if (MY_KEY != null && MY_KEY.isDown()) {
                 getRotation(client);
+                // TODO: save player x and y rotation to reset to and smooth reset
             } else {
                 reset = true;
                 enabled = false;
@@ -27,7 +28,6 @@ public class KeyInputHandler {
             Altlook.cameraPitch = client.player.getXRot();
             reset = false;
         }
-
         enabled = true;
     }
 }

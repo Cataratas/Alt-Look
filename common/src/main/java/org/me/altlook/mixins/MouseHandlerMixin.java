@@ -18,7 +18,7 @@ public abstract class MouseHandlerMixin {
     @Shadow
     private Minecraft minecraft;
 
-    @Inject(method = "turnPlayer", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "turnPlayer(D)V", at = @At("HEAD"), cancellable = true)
     private void altlookTurnPlayer(double d, CallbackInfo ci) {
         if (!Altlook.enabled) return;
         ci.cancel();

@@ -18,11 +18,11 @@ public class CameraMixin {
     @Shadow
     private Quaternionf rotation;
 
-    @Inject(method="setRotation", at = @At(
-            value = "HEAD",
-            target = "Lnet/minecraft/client/Camera;setRotation(FF)V"
-    ), cancellable = true)
-    private void altlookSetRotation(CallbackInfo ci) {
+    @Inject(
+            method = "setup",
+            at = @At("TAIL"),
+            cancellable = true)
+    private void altlookSetup(CallbackInfo ci) {
         if (!Altlook.enabled) return;
         ci.cancel();
 

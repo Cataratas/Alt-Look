@@ -1,17 +1,16 @@
 package org.me.altlook.fabric;
 
+import net.minecraft.client.KeyMapping;
+import net.minecraft.resources.ResourceLocation;
 import org.me.altlook.Altlook;
 import net.fabricmc.api.ModInitializer;
 
-public final class AltlookFabric implements ModInitializer {
 
+public final class AltlookFabric implements ModInitializer {
+    public static KeyMapping.Category MY_CATEGORY;
     @Override
     public void onInitialize() {
-        // This code runs as soon as Minecraft is in a mod-load-ready state.
-        // However, some things (like resources) may still be uninitialized.
-        // Proceed with mild caution.
-
-        // Run our common setup.
         Altlook.init();
+        MY_CATEGORY = KeyMapping.Category.register(ResourceLocation.parse(Altlook.MOD_ID));
     }
 }
