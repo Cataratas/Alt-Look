@@ -6,7 +6,7 @@ import static org.me.altlook.Altlook.MY_KEY;
 import static org.me.altlook.Altlook.enabled;
 
 public class KeyInputHandler {
-    private static boolean reset = true;
+    private static boolean resetNeck = true;
 
     public static void register() {
         ClientTickEvent.CLIENT_POST.register(client -> {
@@ -14,7 +14,7 @@ public class KeyInputHandler {
                 getRotation(client);
                 // TODO: save player x and y rotation to reset to and smooth reset
             } else {
-                reset = true;
+                resetNeck = true;
                 enabled = false;
             }
         });
@@ -23,10 +23,10 @@ public class KeyInputHandler {
     private static void getRotation(Minecraft client) {
         if (client.player == null) return;
 
-        if (reset) {
+        if (resetNeck) {
             Altlook.cameraYaw = client.player.getYRot();
             Altlook.cameraPitch = client.player.getXRot();
-            reset = false;
+            resetNeck = false;
         }
         enabled = true;
     }
